@@ -1,0 +1,29 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     mytb
+relocations:
+  - { offset: 0x1A, size: 0x8, addend: 0x0, symName: ___constants_MOD_zheev_evals, symObjAddr: 0x0, symBinAddr: 0x1000078E4, symSize: 0x7D0 }
+  - { offset: 0xAB, size: 0x8, addend: 0x0, symName: ___constants_MOD_dat_write, symObjAddr: 0x7D0, symBinAddr: 0x1000080B4, symSize: 0x55C }
+  - { offset: 0x120, size: 0x8, addend: 0x0, symName: _i.11, symObjAddr: 0x6E18, symBinAddr: 0x1000100B8, symSize: 0x0 }
+  - { offset: 0x136, size: 0x8, addend: 0x0, symName: _ierr.12, symObjAddr: 0x6E14, symBinAddr: 0x1000100B4, symSize: 0x0 }
+  - { offset: 0x15A, size: 0x8, addend: 0x0, symName: ___constants_MOD_zheev_evals, symObjAddr: 0x0, symBinAddr: 0x1000078E4, symSize: 0x7D0 }
+  - { offset: 0x1CF, size: 0x8, addend: 0x0, symName: _iostat.13, symObjAddr: 0x6E10, symBinAddr: 0x1000100B0, symSize: 0x0 }
+  - { offset: 0x291, size: 0x8, addend: 0x0, symName: ___tb_hamiltonian_MOD_on_site, symObjAddr: 0x1810, symBinAddr: 0x1000090F4, symSize: 0xF0 }
+  - { offset: 0x2ED, size: 0x8, addend: 0x0, symName: ___tb_hamiltonian_MOD_intra_cell, symObjAddr: 0x138C, symBinAddr: 0x100008C70, symSize: 0x484 }
+  - { offset: 0x369, size: 0x8, addend: 0x0, symName: _i.9, symObjAddr: 0x6E20, symBinAddr: 0x1000100C0, symSize: 0x0 }
+  - { offset: 0x3AE, size: 0x8, addend: 0x0, symName: ___tb_hamiltonian_MOD_inter_cell, symObjAddr: 0xD2C, symBinAddr: 0x100008610, symSize: 0x660 }
+  - { offset: 0x43B, size: 0x8, addend: 0x0, symName: _i.10, symObjAddr: 0x6E1C, symBinAddr: 0x1000100BC, symSize: 0x0 }
+  - { offset: 0x499, size: 0x8, addend: 0x0, symName: ___tight_binding_MOD_make_t_table, symObjAddr: 0x2700, symBinAddr: 0x100009FE4, symSize: 0x694 }
+  - { offset: 0x4F7, size: 0x8, addend: 0x0, symName: _i.6, symObjAddr: 0x6E2C, symBinAddr: 0x1000100CC, symSize: 0x0 }
+  - { offset: 0x50D, size: 0x8, addend: 0x0, symName: _istat.7, symObjAddr: 0x6E28, symBinAddr: 0x1000100C8, symSize: 0x0 }
+  - { offset: 0x523, size: 0x8, addend: 0x0, symName: _j.5, symObjAddr: 0x6E30, symBinAddr: 0x1000100D0, symSize: 0x0 }
+  - { offset: 0x539, size: 0x8, addend: 0x0, symName: ___tight_binding_MOD_make_htn, symObjAddr: 0x1BA4, symBinAddr: 0x100009488, symSize: 0xB5C }
+  - { offset: 0x608, size: 0x8, addend: 0x0, symName: _istat.8, symObjAddr: 0x6E24, symBinAddr: 0x1000100C4, symSize: 0x0 }
+  - { offset: 0x678, size: 0x8, addend: 0x0, symName: ___tight_binding_MOD_get_grad, symObjAddr: 0x1900, symBinAddr: 0x1000091E4, symSize: 0x2A4 }
+  - { offset: 0x6E2, size: 0x8, addend: 0x0, symName: _MAIN__, symObjAddr: 0x2D94, symBinAddr: 0x10000A678, symSize: 0x108C }
+  - { offset: 0x7A9, size: 0x8, addend: 0x0, symName: _i.2, symObjAddr: 0x4214, symBinAddr: 0x1000100AC, symSize: 0x0 }
+  - { offset: 0x7C0, size: 0x8, addend: 0x0, symName: _istat.4, symObjAddr: 0x6E34, symBinAddr: 0x1000100D4, symSize: 0x0 }
+  - { offset: 0x819, size: 0x8, addend: 0x0, symName: _phi.1, symObjAddr: 0x6E38, symBinAddr: 0x1000100D8, symSize: 0x0 }
+  - { offset: 0x830, size: 0x8, addend: 0x0, symName: _phi_max.3, symObjAddr: 0x4210, symBinAddr: 0x1000100A8, symSize: 0x0 }
+  - { offset: 0x8C1, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x3E20, symBinAddr: 0x10000B704, symSize: 0x3C }
+...
