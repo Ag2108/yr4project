@@ -76,6 +76,8 @@ module constants
     deallocate(RWORK,stat=ierr)
     if(ierr/=0) stop 'error deallocating RWORK'
 
+    !print*, W(1)
+
   end subroutine zheev_evals
 
 end module constants
@@ -127,7 +129,7 @@ module TB_Hamiltonian
     integer, intent(in)                          :: N_site
     logical, dimension(:,:), intent(in)          :: t_table
     real(kind=dp), dimension(:,:), intent(in)    :: t_vals
-    complex(kind=dp), intent(inout)              :: pexp
+    complex(kind=dp), intent(in)                 :: pexp
     complex(kind=dp), dimension(:), intent(inout):: htn_row
     !complex(kind=dp), intent(in), optional       :: ctn
 
@@ -168,22 +170,28 @@ module TB_Hamiltonian
     real(kind=dp), dimension(:,:), intent(in)    :: t_vals
     logical, dimension(:,:), intent(in)          :: t_table
     complex(kind=dp), intent(in)                 :: texp
-    complex(kind=dp), intent(inout)              :: pexp
+    complex(kind=dp), intent(in)                 :: pexp
     complex(kind=dp), dimension(:), intent(inout):: htn_row
     !complex(kind=dp), optional, intent(in)       :: ctn
 
     integer:: i=0
 
-    pexp=pexp**N_site
+    !pexp=pexp**N_site
 
     htn_row=0.0_dp
+
+    !print*, 'N_site,inter_cell',N_site
+    !print*, 'pexp,inter_cell', pexp
 
     do i=1,size(htn_row)
       if(t_table(N_site,i).eqv..true.) cycle
 
         !+1 factor added as nearest neighbour & different level
-        htn_row(i)=t_vals(abs(N_site-i+1),2)*texp*pexp&
-                 &-t_vals(abs(N_site-i+1),2)*texp**(-1)*pexp**(-1)
+        !swaps dims of t_vals to correspond to correct format 17/11/25
+        htn_row(i)=t_vals(2,abs(N_site-i+1))*texp*pexp&
+                 &-t_vals(2,abs(N_site-i+1))*texp**(-1)*pexp**(-1)
+        !print*, htn_row(i), 'inter_cell'
+        !print*, pexp
 
         if(i>N_site) htn_row(i)=-1.0_dp*htn_row(i)
 
@@ -290,6 +298,8 @@ subroutine make_htn(size, e_val, t_vals, texp, pexp, t_table, htn)
   do N_site=1,size
 
 
+      !print*, 'pexp make_htn',pexp
+
       call on_site(N_site, e_val, on_site_row)
       call intra_cell(N_site, t_table(:,:,1), t_vals, pexp, intra_cell_row)
       call inter_cell(N_site, t_vals, t_table(:,:,2), texp, pexp,&
@@ -321,11 +331,11 @@ end subroutine make_htn
 
     integer:: i
 
-    do i=1,size(data)-1
+    do i=1,size(data)
       grad(i)=grad(i)+(-1.0_dp*3E8*(data(i)-data(i+1))/size(data))
     end do
 
-    grad(i+1)=0.0_dp
+    !grad(i+1)=0.0_dp
 
     return
   end subroutine get_grad
@@ -334,8 +344,8 @@ end subroutine make_htn
 end module tight_binding
 
 program main_project
-  use omp_lib
-  use omp_lib_kinds
+  !use omp_lib
+  !use omp_lib_kinds
   use constants
   use tight_binding
   implicit none
@@ -348,13 +358,13 @@ program main_project
   real(kind=dp), dimension(:,:),allocatable    :: t_vals,dat_array,grad_array
   complex(kind=dp)                             :: kexp, aexp, pexp!,ctn
   logical, dimension(:,:,:), allocatable       :: t_table
-  integer                                      :: phi_max=1E3,k
+  integer                                      :: phi_max=1E2,k
   !character(len=100)                             :: solve
   !logical                                      :: dynamic
   !Note- as above, neighbours is set to 1 for initial testing
 
   !solve='current'
-  size=75
+  size=21
   e_val=0.0_dp
   !a_val should be high for effective single layer ring
   a_val=1.0_dp
@@ -385,17 +395,21 @@ program main_project
   !$OMP parallel do default(none) &
   !$OMP & private(i,phi,theta_val,pexp,htn,egn,k_val,kexp) &
   !$OMP & shared(phi_max,size,aexp,istat,e_val,t_vals,a_val,t_table) &
-  !OMP$ & schedule(dynamic) num_threads(nthreads) reduction(+:dat_array)
+  !$OMP & schedule(dynamic) num_threads(nthreads) reduction(+:dat_array)
 
   do i=-phi_max,phi_max
 
     phi=real(i,kind=dp)*(real_pi/2.0_dp)/real(phi_max,kind=dp)
+
+    !print*, phi
  
     !defining phi as $\frac{\phi}{\phi_0}$
     theta_val=((real_pi*2)*phi)/real(size, kind=dp)
     !Note: fudge factor
     !theta_val=theta_val*4.0_dp/3.0_dp
     pexp=exp(cmplx_i*theta_val)
+
+    !print*, 'pexp main',pexp
 
     !Note- neighbours still assumed to be 1
     kexp=aexp**(k_val)
@@ -404,8 +418,10 @@ program main_project
     if(istat/=0) stop 'error allocating htn matrix'
 
     call make_htn(size,e_val,t_vals,kexp,pexp,t_table,htn)
-    !print*, htn(1,8) 
-    !print*, htn(8,1)
+    !do k=1,size
+      !print*, htn(1,1)
+      !print*, htn(size,size) 
+    !end do
     !print*, t_table(1,8,1)
     !do i=1,size
     !  print*, t_table(:,i,1)
@@ -413,9 +429,13 @@ program main_project
 
     call zheev_evals(htn,egn)
 
+    !print*, phi
+
     dat_array(i,1) =phi
     grad_array(i,1)=phi
     dat_array(i,2:)=egn(:)
+
+    !print*, dat_array(i,:2)
 
     print*, i
 
@@ -429,14 +449,14 @@ program main_project
 
   !$OMP end parallel do
 
-  do k=1,int(size/2)
-    call get_grad(dat_array(:,k),grad_array(:,2))
-    print*, int(size/2)
-  end do
+  !do k=1,int(size/2)
+  !  call get_grad(dat_array(:,k),grad_array(:,2))
+  !  !print*, int(size/2)
+  !end do
 
-  call dat_write('tbtest.dat',dat_array,15)
+  call dat_write('tbtest.dat',dat_array,13)
 
-  call dat_write('currenttest.dat',grad_array,17)
+  call dat_write('currenttest.dat',grad_array,12)
   
   deallocate(t_vals, stat=istat)
   if(istat/=0) stop 'error deallocating t_vals array'
