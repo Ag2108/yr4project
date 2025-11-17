@@ -327,11 +327,13 @@ end subroutine make_htn
     implicit none
 
     real(kind=dp),dimension(:),intent(in)   :: data
-    real(kind=dp),dimension(:),intent(inout)::grad
+    real(kind=dp),dimension(:),intent(inout):: grad
 
     integer:: i
 
-    do i=1,size(data)
+    !grad=0.0_dp
+
+    do i=1,size(data)-1
       grad(i)=grad(i)+(-1.0_dp*3E8*(data(i)-data(i+1))/size(data))
     end do
 
@@ -351,20 +353,20 @@ program main_project
   implicit none
 
   complex(kind=dp), dimension(:,:), allocatable:: htn
-  integer                                      :: size,istat=0, i=1,nthreads=8
+  integer                                      :: size,istat=0,i=1,nthreads=8
   real(kind=dp)                                :: e_val, a_val, k_val,&
                                                  &theta_val, phi=0.0_dp
   real(kind=dp), dimension(:), allocatable     :: egn
   real(kind=dp), dimension(:,:),allocatable    :: t_vals,dat_array,grad_array
   complex(kind=dp)                             :: kexp, aexp, pexp!,ctn
   logical, dimension(:,:,:), allocatable       :: t_table
-  integer                                      :: phi_max=1E2,k
+  integer                                      :: phi_max=1E4,k
   !character(len=100)                             :: solve
   !logical                                      :: dynamic
   !Note- as above, neighbours is set to 1 for initial testing
 
   !solve='current'
-  size=21
+  size=20
   e_val=0.0_dp
   !a_val should be high for effective single layer ring
   a_val=1.0_dp
@@ -437,7 +439,7 @@ program main_project
 
     !print*, dat_array(i,:2)
 
-    print*, i
+    !print*, i
 
     deallocate(htn, stat=istat)
     if(istat/=0) stop 'error deallocating htn array'
@@ -449,10 +451,10 @@ program main_project
 
   !$OMP end parallel do
 
-  !do k=1,int(size/2)
-  !  call get_grad(dat_array(:,k),grad_array(:,2))
-  !  !print*, int(size/2)
-  !end do
+  do k=2,int(size/2)
+    call get_grad(dat_array(:,k),grad_array(:,2))
+    !print*, int(size/2)
+  end do
 
   call dat_write('tbtest.dat',dat_array,13)
 
