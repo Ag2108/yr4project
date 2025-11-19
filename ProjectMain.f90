@@ -121,7 +121,7 @@ module TB_Hamiltonian
 !            considered in the form of the logical t_table 2 dimensional    !
 !            array. This calculates the term defined by <Rlm|H|Rln> within  !
 !            the tight binding formalism.                                   !
-!DATE      : 07/10/2025, updated for current: 06/11/25                      !
+!DATE      : 07/10/2025, updated for fwrd hopping: 19/11/25                 !
 !---------------------------------------------------------------------------!
   subroutine intra_cell(N_site, t_table, t_vals, pexp, htn_row)
     implicit none
@@ -143,7 +143,9 @@ module TB_Hamiltonian
     !as it is more effective to have as a default
       if(t_table(N_site,i).eqv..true.) cycle
       htn_row(i)=t_vals(1,1)*pexp
-      if(i>N_site) htn_row(i)=-1.0_dp*htn_row(i)*pexp**(-2)
+      if(N_site==1) htn_row(size(htn_row))  =htn_row(size(htn_row))*pexp**(-2)
+      !Note removed -1.0_dp, replaced by making t=-1.0_dp default
+      if(mod(i,N_site)==N_site-1) htn_row(i)=htn_row(i)*pexp**(-2)
 
       !print*, pexp
     end do
@@ -384,7 +386,7 @@ program main_project
 
   grad_array=0.0_dp
 
-  t_vals(1,1)=1.0_dp
+  t_vals(1,1)=-1.0_dp
   t_vals(2,1)=0.0_dp !only considering one layer of ring
 
   !calculating texp
@@ -393,6 +395,10 @@ program main_project
   !phi=real_pi/4.0_dp
 
   call make_t_table(size,t_table)
+
+  !do i=1,size
+  !  print*, t_table(i,:,1)
+  !end do
 
   !$OMP parallel do default(none) &
   !$OMP & private(i,phi,theta_val,pexp,htn,egn,k_val,kexp) &
