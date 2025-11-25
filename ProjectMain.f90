@@ -123,13 +123,13 @@ module TB_Hamiltonian
 !            the tight binding formalism.                                   !
 !DATE      : 07/10/2025, updated for fwrd hopping: 19/11/25                 !
 !---------------------------------------------------------------------------!
-  subroutine intra_cell(N_site, t_table, t_vals, pexp, htn_row)
+  subroutine intra_cell(N_site, t_table, t_vals, pexp, kexp, htn_row)
     implicit none
 
     integer, intent(in)                          :: N_site
     logical, dimension(:,:), intent(in)          :: t_table
     real(kind=dp), dimension(:,:), intent(in)    :: t_vals
-    complex(kind=dp), intent(in)                 :: pexp
+    complex(kind=dp), intent(in)                 :: pexp,kexp
     complex(kind=dp), dimension(:), intent(inout):: htn_row
     !complex(kind=dp), intent(in), optional       :: ctn
 
@@ -143,12 +143,19 @@ module TB_Hamiltonian
     !as it is more effective to have as a default
       if(t_table(N_site,i).eqv..true.) cycle
       htn_row(i)=t_vals(1,1)*pexp
-      if(N_site==1) htn_row(size(htn_row))  =htn_row(size(htn_row))*pexp**(-2)
+
+      !allocating hopping internal to ring    :- phi dept
       !Note removed -1.0_dp, replaced by making t=-1.0_dp default
       if(mod(i,N_site)==N_site-1) htn_row(i)=htn_row(i)*pexp**(-2)
 
       !print*, pexp
     end do
+    !completing edge case
+    if(N_site==1) htn_row(size(htn_row))=htn_row(size(htn_row))*pexp**(-2)
+
+    !allocating hopping btwn revs of ring
+    if(N_site==1) htn_row(size(htn_row))=htn_row(size(htn_row))*kexp**(-1)
+    if(N_site==size(htn_row)) htn_row(1)=htn_row(1)*kexp
   end subroutine intra_cell
 
 !---------------------------------------------------------------------------!
@@ -269,13 +276,13 @@ module tight_binding
 !            the full NxN matrix for the unit cell of size N.               !
 !DATE      : 08/10/2025                                                     !
 !---------------------------------------------------------------------------!
-subroutine make_htn(size, e_val, t_vals, texp, pexp, t_table, htn)
+subroutine make_htn(size, e_val, t_vals, kexp, pexp, t_table, htn)
   implicit none
 
   integer, intent(in)                            :: size
   real(kind=dp), intent(in)                      :: e_val
   real(kind=dp), dimension(:,:), intent(in)      :: t_vals
-  complex(kind=dp), intent(in)                   :: texp
+  complex(kind=dp), intent(in)                   :: kexp
   complex(kind=dp), intent(inout)                :: pexp
   complex(kind=dp), intent(inout), dimension(:,:):: htn
   !neighbours is implicitly 1 here (08/10/2025)
@@ -303,8 +310,9 @@ subroutine make_htn(size, e_val, t_vals, texp, pexp, t_table, htn)
       !print*, 'pexp make_htn',pexp
 
       call on_site(N_site, e_val, on_site_row)
-      call intra_cell(N_site, t_table(:,:,1), t_vals, pexp, intra_cell_row)
-      call inter_cell(N_site, t_vals, t_table(:,:,2), texp, pexp,&
+      call intra_cell(N_site, t_table(:,:,1), t_vals, pexp, kexp,&
+                   &intra_cell_row)
+      call inter_cell(N_site, t_vals, t_table(:,:,2), kexp, pexp,&
                    &inter_cell_row)
 
 
@@ -398,7 +406,7 @@ program main_project
   !calculating texp
   aexp=exp(cmplx_i*a_val)
 
-  !phi=real_pi/4.0_dp
+  !phi=0.0_dp!real_pi/4.0_dp
 
   call make_t_table(size,t_table)
 
@@ -427,6 +435,7 @@ program main_project
 
     !Note- neighbours still assumed to be 1
     kexp=aexp**(k_val)
+    !print*, kexp
 
     allocate(htn(size,size), stat=istat)
     if(istat/=0) stop 'error allocating htn matrix'
