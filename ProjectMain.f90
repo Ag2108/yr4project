@@ -336,7 +336,7 @@ end subroutine make_htn
     !grad=0.0_dp
 
     do i=1,size(data)-1
-      grad(i)=grad(i)+(-1.0_dp*3E8*(data(i)-data(i+1))/size(data))
+      grad(i)=grad(i)+(3E8*(data(i)-data(i+1))/size(data))
     end do
 
     !grad(i+1)=0.0_dp
@@ -355,7 +355,8 @@ program main_project
   implicit none
 
   complex(kind=dp), dimension(:,:), allocatable:: htn
-  integer                                      :: size,istat=0,i=1,nthreads=8
+  integer                                      :: size,istat=0,i=1,&
+                                                 &nthreads=8,filling
   real(kind=dp)                                :: e_val, a_val, k_val,&
                                                  &theta_val, phi=0.0_dp
   real(kind=dp), dimension(:), allocatable     :: egn
@@ -369,6 +370,11 @@ program main_project
 
   !solve='current'
   size=20
+  filling=0
+  if(filling>size.or.filling==0) then 
+    print*, 'invalid filling value, 1/2 filled current calculated'
+    filling=int(real(size,kind=dp)/2.0_dp)
+  end if
   e_val=0.0_dp
   !a_val should be high for effective single layer ring
   a_val=1.0_dp
@@ -457,7 +463,7 @@ program main_project
 
   !$OMP end parallel do
 
-  do k=2,int(size/2)
+  do k=2,filling+1
     call get_grad(dat_array(:,k),grad_array(:,2))
     !print*, int(size/2)
   end do
