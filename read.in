@@ -1,0 +1,5 @@
+#READ.IN file for topological insulator model
+#Please refer to Basic.f90 for a feeling on how to complete this input file
+SIZE=42
+#must ALWAYS end in 'EXIT' to avoid INFINITE LOOP
+EXIT

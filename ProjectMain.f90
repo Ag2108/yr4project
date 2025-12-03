@@ -370,6 +370,7 @@ program main_project
   real(kind=dp), dimension(:), allocatable     :: egn
   real(kind=dp), dimension(:,:),allocatable    :: t_vals,dat_array,grad_array
   complex(kind=dp)                             :: kexp, aexp, pexp!,ctn
+  real(kind=dp)                                :: Inought
   logical, dimension(:,:,:), allocatable       :: t_table
   integer                                      :: phi_max=1E4,k
   !character(len=100)                             :: solve
@@ -377,14 +378,14 @@ program main_project
   !Note- as above, neighbours is set to 1 for initial testing
 
   !solve='current'
-  size=20
-  filling=0
+  size=100
+  Inought=2.0_dp*real_pi*1.0_dp
+  filling=35
   if(filling>size.or.filling==0) then 
     print*, 'invalid filling value, 1/2 filled current calculated'
     filling=int(real(size,kind=dp)/2.0_dp)
   end if
   e_val=0.0_dp
-  !a_val should be high for effective single layer ring
   a_val=1.0_dp
   k_val=0.0_dp
 
@@ -476,6 +477,8 @@ program main_project
     call get_grad(dat_array(:,k),grad_array(:,2))
     !print*, int(size/2)
   end do
+
+  grad_array(:,2:)=grad_array(:,2:)*Inought
 
   call dat_write('tbtest.dat',dat_array,13)
 
