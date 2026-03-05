@@ -39,10 +39,11 @@ module constants
     if(ierr/=0) stop "error closing data file"
   end subroutine dat_write
 
-  subroutine get_params(size,filling,phase_case,a_val,epsn_val,t_val)
+  subroutine get_params(size,filling,phase_case,a_val,epsn_val,t_vals,n_t_vals)
     implicit none
-    integer,intent(OUT)      :: size,filling
-    real(kind=dp),intent(OUT):: phase_case,epsn_val,t_val,a_val
+    integer,intent(OUT)                   :: size,filling,n_t_vals
+    real(kind=dp),intent(OUT)             :: phase_case,epsn_val,a_val
+    real(kind=dp),dimension(4),intent(OUT):: t_vals
 
     character(len=100):: ifl
     character(len=100):: line,param
@@ -66,7 +67,9 @@ module constants
     phase_case=0.0_dp!To be multiplied by pi to determine phase/antiphase etc
     a_val     =1.0_dp!Atomic Spacing/Amstrongs
     epsn_val  =0.0_dp!On site energy/eV
-    t_val     =-1.0_dp!Hopping value (nearest neighbour)
+    t_vals(:2) =-1.0_dp!Hopping value (nearest neighbour)
+    t_vals(3:)=0.0_dp
+    n_t_vals=1
 
     open (unit=file_unit,file=ifl,status="old",action="read",iostat=istat)
     if (istat/=0) STOP 'error openning input file'
@@ -101,9 +104,21 @@ module constants
       case('ON-SITE')
         read(line(index(line,'=')+1:),*,iostat=istat) epsn_val
         if(istat/=0) stop 'invalid ON-SITE'
-      case('HOPPING')
-        read(line(index(line,'=')+1:),*,iostat=istat) t_val
-        if(istat/=0) stop 'invalid HOPPING'
+      case('HOPPING1')
+        read(line(index(line,'=')+1:),*,iostat=istat) t_vals(1)
+        if(istat/=0) stop 'invalid HOPPING1'
+      case('HOPPING2')
+        read(line(index(line,'=')+1:),*,iostat=istat) t_vals(2)
+        if(istat/=0) stop 'invalid HOPPING2'
+      case('HOPPING3')
+        read(line(index(line,'=')+1:),*,iostat=istat) t_vals(3)
+        if(istat/=0) stop 'invalid HOPPING3'
+      case('LHOPPING')
+        read(line(index(line,'=')+1:),*,iostat=istat) t_vals(4)
+        if(istat/=0) stop 'invalid LHOPPING'
+      case('NTVALS')
+        read(line(index(line,'=')+1:),*,iostat=istat) n_t_vals
+        if(istat/=0) stop 'invalid NTVALS'
       case('EXIT')
         print*,'input file read'
         exit
@@ -122,14 +137,18 @@ module constants
     print*,'!--------------------------------------------------------------!'
     print*,'!PARAMETERS USED:                                              !'
     print*,'!--------------------------------------------------------------!'
-    print*,'                  SIZE   = ',size
-    print*,'                  FILLING= ',filling
-    print*,'                  PHASE  = ',phase_case
-    print*,'                  SPACING= ',a_val
-    print*,'                  ON-SITE= ',epsn_val
-    print*,'                  HOPPING= ',t_val
+    print*,'                  SIZE    = ',size
+    print*,'                  FILLING = ',filling
+    print*,'                  PHASE   = ',phase_case
+    print*,'                  SPACING = ',a_val
+    print*,'                  ON-SITE = ',epsn_val
+    print*,'                  T VALS  = ',n_t_vals
+    print*,'                  HOPPING1= ',t_vals(1)
+    print*,'                  HOPPING2= ',t_vals(2)
+    print*,'                  HOPPING3= ',t_vals(3)
+    print*,'                  LHOPPING= ',t_vals(4)
     print*,'!--------------------------------------------------------------!'
-    end subroutine get_params
+  end subroutine get_params
 
 
   subroutine zheev_evals(A, W)
@@ -162,6 +181,8 @@ module constants
     if (IERR /= 0) stop "failed to allocate RWORK"
 
     call zheev(JOBZ , UPLO , N , A , LDA , W, WORK, LWORK, RWORK, INFO)
+
+    if(INFO/=0) STOP 'Zheev error'
 
     deallocate(WORK,stat=ierr)
     if(ierr/=0) stop 'error deallocating WORK'

@@ -1,5 +1,10 @@
 #READ.IN file for topological insulator model
 #Please refer to Basic.f90 for a feeling on how to complete this input file
-SIZE=42
+SIZE    =7
+FILLING =21
+PHASE   =0
+HOPPING1=1.5
+HOPPING2=1
+NTVALS=2
 #must ALWAYS end in 'EXIT' to avoid INFINITE LOOP
 EXIT

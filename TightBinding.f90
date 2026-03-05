@@ -65,12 +65,12 @@ module tight_binding
 !            the full NxN matrix for the unit cell of size N.               !
 !DATE      : 08/10/2025                                                     !
 !---------------------------------------------------------------------------!
-subroutine make_htn(size, e_val, t_vals, kexp, pexp, t_table, htn)
+subroutine make_htn(size, e_val, t_vals, kexp, pexp, t_table, htn, n_t_vals)
   implicit none
 
-  integer, intent(in)                            :: size
+  integer, intent(in)                            :: size,n_t_vals
   real(kind=dp), intent(in)                      :: e_val
-  real(kind=dp), dimension(:,:), intent(in)      :: t_vals
+  real(kind=dp), dimension(:), intent(in)        :: t_vals
   complex(kind=dp), intent(in)                   :: kexp
   complex(kind=dp), intent(inout)                :: pexp
   complex(kind=dp), intent(inout), dimension(:,:):: htn
@@ -100,7 +100,7 @@ subroutine make_htn(size, e_val, t_vals, kexp, pexp, t_table, htn)
 
       call on_site(N_site, e_val, on_site_row)
       call intra_cell(N_site, t_table(:,:,1), t_vals, pexp, kexp,&
-                   &intra_cell_row)
+                   &intra_cell_row,n_t_vals)
       call inter_cell(N_site, t_vals, t_table(:,:,2), kexp, pexp,&
                    &inter_cell_row)
 

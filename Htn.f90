@@ -39,17 +39,19 @@ module TB_Hamiltonian
 !            the tight binding formalism.                                   !
 !DATE      : 07/10/2025, updated for fwrd hopping: 19/11/25                 !
 !---------------------------------------------------------------------------!
-  subroutine intra_cell(N_site, t_table, t_vals, pexp, kexp, htn_row)
+  subroutine intra_cell(N_site, t_table, t_vals, pexp, kexp, htn_row,n_t_vals)
     implicit none
 
-    integer, intent(in)                          :: N_site
+    integer, intent(in)                          :: N_site,n_t_vals
     logical, dimension(:,:), intent(in)          :: t_table
-    real(kind=dp), dimension(:,:), intent(in)    :: t_vals
+    real(kind=dp), dimension(:), intent(in)      :: t_vals
     complex(kind=dp), intent(in)                 :: pexp,kexp
     complex(kind=dp), dimension(:), intent(inout):: htn_row
     !complex(kind=dp), intent(in), optional       :: ctn
 
-    integer:: i=0
+    integer:: i=0,halfsize
+
+    halfsize=int(size(htn_row)/2)
 
     htn_row=0.0_dp
 
@@ -58,19 +60,39 @@ module TB_Hamiltonian
     !determining if the sites are 'hoppable', true means that they are not
     !as it is more effective to have as a default
       if(t_table(N_site,i).eqv..true.) cycle
-      htn_row(i)=t_vals(1,1)*pexp
+
+      if(i>N_site) then
+        htn_row(i)=t_vals(mod(i,n_t_vals)+1)*pexp
+
+        if(N_site==1.and.i==size(htn_row)) then
+          htn_row(i)=t_vals(mod(i,n_t_vals)+1)*conjg(pexp)
+        end if
+
+      elseif(i<N_site) then
+        htn_row(i)=t_vals(mod(i,n_t_vals)+1)*conjg(pexp)
+
+        if(N_site==size(htn_row).and.i==1) then
+          htn_row(i)=t_vals(mod(N_site,n_t_vals)+1)*(pexp)
+        end if
+
+      !elseif(i==size(htn_row)) then
+      !  htn_row(i)=t_vals(mod(i,2)+1)*pexp
+      !elseif(i==1) then
+      !  htn_row(i)=t_vals(mod(i+1,2)+1)*pexp
+      end if
+      !htn_row(i)=t_vals(mod(i+1,2)+1)*pexp
 
       !allocating hopping internal to ring    :- phi dept
       !Note removed -1.0_dp, replaced by making t=-1.0_dp default
-      if(mod(i,N_site)==N_site-1) htn_row(i)=htn_row(i)*pexp**(-2)
+      !if(mod(i,N_site)==N_site-1) htn_row(i)=htn_row(i)*pexp**(-1)
 
       !print*, pexp
     end do
     !completing edge case
-    if(N_site==1) htn_row(size(htn_row))=htn_row(size(htn_row))*pexp**(-2)
+    !if(N_site==1) htn_row(size(htn_row))=htn_row(size(htn_row))*pexp**(-1)
 
     !allocating hopping btwn revs of ring
-    if(N_site==1) htn_row(size(htn_row))=htn_row(size(htn_row))*kexp**(-1)
+    if(N_site==1) htn_row(size(htn_row))=htn_row(size(htn_row))*conjg(kexp)
     if(N_site==size(htn_row)) htn_row(1)=htn_row(1)*kexp
   end subroutine intra_cell
 
@@ -86,13 +108,13 @@ module TB_Hamiltonian
 !            truth table used for the components above. This component of   !
 !            the Hamiltonian calculates the term given by <RLm|H|Rln> within!
 !            the tight binding formalism.                                   !
-!DATE      : 07/10/2025,edited for persistent current:06/11/25              !
+!DATE      : 07/10/2025                                                     !
 !---------------------------------------------------------------------------!
   subroutine inter_cell(N_site, t_vals, t_table, texp, pexp, htn_row)
     implicit none
 
     integer, intent(in)                          :: N_site
-    real(kind=dp), dimension(:,:), intent(in)    :: t_vals
+    real(kind=dp), dimension(:), intent(in)      :: t_vals
     logical, dimension(:,:), intent(in)          :: t_table
     complex(kind=dp), intent(in)                 :: texp
     complex(kind=dp), intent(in)                 :: pexp
@@ -113,8 +135,9 @@ module TB_Hamiltonian
 
         !+1 factor added as nearest neighbour & different level
         !swaps dims of t_vals to correspond to correct format 17/11/25
-        htn_row(i)=t_vals(2,abs(N_site-i+1))*texp*pexp&
-                 &-t_vals(2,abs(N_site-i+1))*texp**(-1)*pexp**(-1)
+        !done this again for single dimensional t_vals 05/12/25
+        htn_row(i)=t_vals(4)*texp*pexp&
+                 &-t_vals(4)*texp**(-1)*pexp**(-1)
         !print*, htn_row(i), 'inter_cell'
         !print*, pexp
 

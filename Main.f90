@@ -7,20 +7,21 @@ program main_project
 
   complex(kind=dp), dimension(:,:), allocatable:: htn
   integer                                      :: size,istat=0,i=1,&
-                                                 &filling
+                                                 &filling,n_t_vals
   real(kind=dp)                                :: e_val, a_val, k_val,phase,&
-                                                 &theta_val, phi=0.0_dp,t_val
-  real(kind=dp), dimension(:), allocatable     :: egn
-  real(kind=dp), dimension(:,:),allocatable    :: t_vals,dat_array,grad_array
+                                                 &theta_val, phi=0.0_dp
+  real(kind=dp), dimension(4)                  :: t_vals
+  real(kind=dp), dimension(:),allocatable      :: egn
+  real(kind=dp), dimension(:,:),allocatable    :: dat_array,grad_array
   complex(kind=dp)                             :: kexp, aexp, pexp!,ctn
   real(kind=dp)                                :: Inought
   logical, dimension(:,:,:), allocatable       :: t_table
-  integer                                      :: phi_max=1E4,k
+  integer                                      :: phi_max=1E3,k,l
   !character(len=100)                             :: solve
   !logical                                      :: dynamic
   !Note- as above, neighbours is set to 1 for initial testing
 
-  call get_params(size,filling,phase,a_val,e_val,t_val)
+  call get_params(size,filling,phase,a_val,e_val,t_vals,n_t_vals)
 
   if(filling>size.or.filling==0) then 
     print*, 'invalid filling value, 1/2 filled current calculated'
@@ -28,10 +29,6 @@ program main_project
   end if
   
   k_val=phase*real_pi
-
-  !Note neighbours again
-  allocate(t_vals(2,1), stat=istat)
-  if(istat/=0) stop 'error allocating t_vals array'
 
   allocate(dat_array(-phi_max:phi_max,size+1),stat=istat)
   if(istat/=0) stop 'error allocating dat_array'
@@ -41,8 +38,8 @@ program main_project
 
   grad_array=0.0_dp
 
-  t_vals(1,1)=-1.0_dp*t_val
-  t_vals(2,1)=0.0_dp !only considering one layer of ring
+  !t_vals(1)=-1.0_dp*t_val
+  !t_vals(2)=0.0_dp !only considering one layer of ring
 
   !calculating texp
   aexp=exp(cmplx_i*a_val)
@@ -75,10 +72,13 @@ program main_project
     allocate(htn(size,size), stat=istat)
     if(istat/=0) stop 'error allocating htn matrix'
 
-    call make_htn(size,e_val,t_vals,kexp,pexp,t_table,htn)
+    call make_htn(size,e_val,t_vals,kexp,pexp,t_table,htn,n_t_vals)
     !do k=1,size
-      !print*, htn(1,1)
-      !print*, htn(size,size) 
+    !print*, 'line', k, 'shows', htn(k,:)
+    !  do l=1,size
+      !print*, k,l,htn(k,l)
+      !print*, l,k,htn(l,k)
+    !end do
     !end do
     !print*, t_table(1,8,1)
     !do i=1,size
@@ -114,9 +114,6 @@ program main_project
   call dat_write('tbtest.dat',dat_array,13)
 
   call dat_write('currenttest.dat',grad_array,12)
-  
-  deallocate(t_vals, stat=istat)
-  if(istat/=0) stop 'error deallocating t_vals array'
 
   deallocate(dat_array, stat=istat)
   if(istat/=0) stop 'error deallocating dat_array array'
