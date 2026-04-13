@@ -1,10 +1,38 @@
 #READ.IN file for topological insulator model
-#Please refer to Basic.f90 for a feeling on how to complete this input file
-SIZE    =7
-FILLING =21
-PHASE   =0
-HOPPING1=1.5
-HOPPING2=1
-NTVALS=2
+#Please refer to Basic.f90 for how to complete this input file
+SIZE    =1
+RANGE   =1
+CELLSIZE=12
+# Site num, epsilon, intra_t_vals,  inter_t_vals (twice as many as range)
+SITE    =1 1.0 1.0 1.0 
+SITE    =2 1.0 1.0 1.0 
+SITE    =3 1.0 1.0 1.0 
+SITE    =4 1.0 1.0 1.0
+SITE    =5 1.0 1.0 1.0 
+SITE    =6 1.0 1.0 1.0
+SITE    =7 1.0 1.0 1.0 
+SITE    =8 1.0 1.0 1.0
+SITE    =9 1.0 1.0 1.0 
+SITE    =10 1.0 1.0 1.0
+SITE    =11 1.0 1.0 1.0 
+SITE    =12 1.0 1.0 1.0
+# In cell connections (always repeated in reverse)
+CONNECT =1 2
+CONNECT =2 3
+CONNECT =3 4
+CONNECT =4 5
+CONNECT =5 6
+CONNECT =6 7
+CONNECT =7 8
+CONNECT =8 9
+CONNECT =9 10
+CONNECT =10 11
+CONNECT =11 12
+# Out cell connections (fwrd connections)
+CONNECTN=12 1
+#AAH case must come after SITE
+# 'Q' factor, length of n
+AAH     =1.618033989 2
 #must ALWAYS end in 'EXIT' to avoid INFINITE LOOP
 EXIT
+

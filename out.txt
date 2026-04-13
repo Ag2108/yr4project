@@ -1,0 +1,71 @@
+ file input read as:read.in                                                                                             
+ RANGE should already be defined to get desired system
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ WARNING: is an invalid parameter
+ WARNING: is an invalid parameter
+ WARNING: is an invalid parameter
+ !--------------------------------------------------------------!
+ !PARAMETERS USED:                                              !
+ !--------------------------------------------------------------!
+                   PHIMAX  =        10000
+                   KMAX    =            1
+                   SIZE    =            1
+                   CELLSIZE=           12
+                   FILLING =           10
+                   PHASE   =    0.0000000000000000     
+                   SPACING =    1.0000000000000000     
+                   RANGE   =            1
+                   AAH     =    1.6180339890000000                2
+ !--------------------------------------------------------------!
+                SITE            1  =  -0.73736887701681597        1.0000000000000000        1.0000000000000000     
+                SITE            2  =  -0.73736887701681597        1.0000000000000000        1.0000000000000000     
+                SITE            3  =    8.7425721586080571E-002   1.0000000000000000        1.0000000000000000     
+                SITE            4  =    8.7425721586080571E-002   1.0000000000000000        1.0000000000000000     
+                SITE            5  =   0.60843886472019126        1.0000000000000000        1.0000000000000000     
+                SITE            6  =   0.60843886472019126        1.0000000000000000        1.0000000000000000     
+                SITE            7  =  -0.98471348641030620        1.0000000000000000        1.0000000000000000     
+                SITE            8  =  -0.98471348641030620        1.0000000000000000        1.0000000000000000     
+                SITE            9  =   0.84375529059517351        1.0000000000000000        1.0000000000000000     
+                SITE           10  =   0.84375529059517351        1.0000000000000000        1.0000000000000000     
+                SITE           11  =  -0.25960429579600947        1.0000000000000000        1.0000000000000000     
+                SITE           12  =  -0.25960429579600947        1.0000000000000000        1.0000000000000000     
+ !--------------------------------------------------------------!
+                   CONNECT =  T F T T T T T T T T T T
+                   CONNECT =  F T F T T T T T T T T T
+                   CONNECT =  T F T F T T T T T T T T
+                   CONNECT =  T T F T F T T T T T T T
+                   CONNECT =  T T T F T F T T T T T T
+                   CONNECT =  T T T T F T F T T T T T
+                   CONNECT =  T T T T T F T F T T T T
+                   CONNECT =  T T T T T T F T F T T T
+                   CONNECT =  T T T T T T T F T F T T
+                   CONNECT =  T T T T T T T T F T F T
+                   CONNECT =  T T T T T T T T T F T F
+                   CONNECT =  T T T T T T T T T T F T
+ !--------------------------------------------------------------!
+               CONNECT_NBR =  T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T
+               CONNECT_NBR =  F T T T T T T T T T T T
+ !--------------------------------------------------------------!
+ old data file:tbtest.dat overwritten
+ old data file:currenttest.dat overwritten

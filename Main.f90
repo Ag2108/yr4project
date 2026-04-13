@@ -6,22 +6,20 @@ program main_project
   implicit none
 
   complex(kind=dp), dimension(:,:), allocatable:: htn
-  integer                                      :: size,istat=0,i=1,&
-                                                 &filling,n_t_vals
-  real(kind=dp)                                :: e_val, a_val, k_val,phase,&
-                                                 &theta_val, phi=0.0_dp
-  real(kind=dp), dimension(4)                  :: t_vals
+  type(unit_cell)                              :: cell
+  integer                                      :: sys_size,istat=0,i=1,j=1,&
+                                                 &filling,size
+  real(kind=dp)                                :: a_val, k_val,phase,&
+                                                 &theta_val, phi=0.0_dp,k_pos
   real(kind=dp), dimension(:),allocatable      :: egn
-  real(kind=dp), dimension(:,:),allocatable    :: dat_array,grad_array
+  real(kind=dp), dimension(:,:),allocatable    :: dat_array,grad_array,grad_sum,ipr_vals
   complex(kind=dp)                             :: kexp, aexp, pexp!,ctn
-  real(kind=dp)                                :: Inought
-  logical, dimension(:,:,:), allocatable       :: t_table
-  integer                                      :: phi_max=1E3,k,l
-  !character(len=100)                             :: solve
-  !logical                                      :: dynamic
-  !Note- as above, neighbours is set to 1 for initial testing
+  real(kind=dp)                                :: d_phi,fermi
+  integer                                      :: phi_max,k_max
 
-  call get_params(size,filling,phase,a_val,e_val,t_vals,n_t_vals)
+  call init_sys(cell,sys_size,filling,phase,a_val,phi_max,k_max)
+
+  size=sys_size*cell%n_sites
 
   if(filling>size.or.filling==0) then 
     print*, 'invalid filling value, 1/2 filled current calculated'
@@ -30,98 +28,114 @@ program main_project
   
   k_val=phase*real_pi
 
-  allocate(dat_array(-phi_max:phi_max,size+1),stat=istat)
+  allocate(dat_array(1:phi_max+1,size+1),stat=istat)
   if(istat/=0) stop 'error allocating dat_array'
 
-  allocate(grad_array(-phi_max:phi_max,2),stat=istat)
+  allocate(ipr_vals(1:phi_max+1,2),stat=istat)
+  if(istat/=0) stop 'error allocating ipr_vals'
+
+  allocate(grad_array(1:phi_max+1,size+1),stat=istat)
   if(istat/=0) stop 'error allocating grad_array'
 
   grad_array=0.0_dp
+  ipr_vals  =0.0_dp
 
-  !t_vals(1)=-1.0_dp*t_val
-  !t_vals(2)=0.0_dp !only considering one layer of ring
-
-  !calculating texp
   aexp=exp(cmplx_i*a_val)
-  !phi=0.0_dp!real_pi/4.0_dp
 
-  call make_t_table(size,t_table)
+  do i=1,phi_max+1
 
-  !do i=1,size
-  !  print*, t_table(i,:,1)
-  !end do
+    ! System now iterates -pi -> pi
+    phi=real(i-1,kind=dp)*(2.0_dp*real_pi)/real(phi_max,kind=dp)-real_pi
 
-  do i=-phi_max,phi_max
-
-    phi=real(i,kind=dp)*(real_pi/2.0_dp)/real(phi_max,kind=dp)
-
-    !print*, phi
- 
     !defining phi as $\frac{\phi}{\phi_0}$
-    theta_val=((real_pi*2)*phi)/real(size, kind=dp)
-    !Note: fudge factor
-    !theta_val=theta_val*4.0_dp/3.0_dp
+    theta_val=((real_pi*2)*phi)
     pexp=exp(cmplx_i*theta_val)
 
-    !print*, 'pexp main',pexp
+    do j=1,k_max+1
 
-    !Note- neighbours still assumed to be 1
-    kexp=aexp**(k_val)
-    !print*, kexp
+      k_pos=real(j-1,kind=dp)*(2.0_dp*real_pi)/real(k_max,kind=dp)-real_pi
 
-    allocate(htn(size,size), stat=istat)
-    if(istat/=0) stop 'error allocating htn matrix'
+      kexp=aexp**(k_pos)
 
-    call make_htn(size,e_val,t_vals,kexp,pexp,t_table,htn,n_t_vals)
-    !do k=1,size
-    !print*, 'line', k, 'shows', htn(k,:)
-    !  do l=1,size
-      !print*, k,l,htn(k,l)
-      !print*, l,k,htn(l,k)
-    !end do
-    !end do
-    !print*, t_table(1,8,1)
-    !do i=1,size
-    !  print*, t_table(:,i,1)
-    !end do
+      allocate(htn(size,size), stat=istat)
+      if(istat/=0) stop 'error allocating htn matrix'
 
-    call zheev_evals(htn,egn)
+      htn=(0.0_dp,0.0_dp)
 
-    !print*, phi
+      call make_htn(sys_size, cell, kexp, pexp, htn)
 
-    dat_array(i,1) =phi
-    grad_array(i,1)=phi
-    dat_array(i,2:)=egn(:)
+      call zheev_evals(htn,egn)
 
-    !print*, dat_array(i,:2)
+      deallocate(htn, stat=istat)
+      if(istat/=0) stop 'error deallocating htn array'
 
-    !print*, i
+      deallocate(egn, stat=istat)
+      if(istat/=0) stop 'error deallocating egn array'
+    
+    end do
 
-    deallocate(htn, stat=istat)
-    if(istat/=0) stop 'error deallocating htn array'
+    ! Ensuring that the required momentum phase is picked up
+    ! Even if it not calculated exactly in the main k loop.
 
-    deallocate(egn, stat=istat)
-    if(istat/=0) stop 'error deallocating egn array'
+      kexp=aexp**(k_val)
+
+      allocate(htn(size,size), stat=istat)
+      if(istat/=0) stop 'error allocating htn matrix'
+
+      htn=(0.0_dp,0.0_dp)
+
+      call make_htn(sys_size, cell, kexp, pexp, htn)
+
+      call zheev_evals(htn,egn)
+
+      dat_array(i,1) =phi
+      grad_array(i,1)=phi
+      dat_array(i,2:)=egn(:)
+      ipr_vals(i,1)  =phi
+      ipr_vals(i,2)  =sum(abs(htn(:,j))**4)
+
+      deallocate(htn, stat=istat)
+      if(istat/=0) stop 'error deallocating htn array'
+
+      deallocate(egn, stat=istat)
+      if(istat/=0) stop 'error deallocating egn array'
  
   end do
 
-  do k=2,filling+1
-    call get_grad(dat_array(:,k),grad_array(:,2))
+  d_phi = (2.0_dp * real_pi) / real(phi_max, kind=dp)
+
+  call get_grad(dat_array(:, 2:size+1), grad_array(:, 2:size+1),&
+               &d_phi, (phi_max+1), size)
+
+  allocate(grad_sum(1:phi_max+1,2),stat=istat)
+  if(istat/=0) stop 'error allocating grad_sum'
+
+  fermi=maxval(dat_array(:,filling))
+
+  grad_sum(:,1)=grad_array(:,1)
+  do i=1,phi_max+1
+    grad_sum(i,2) =sum(grad_array(i,2:filling+1))
+  !  dat_array(i,2:)=dat_array(i,2:)-fermi
   end do
-  Inought=maxval(grad_array(:,2))
-  grad_array(:,2)=grad_array(:,2)/Inought
+
+  grad_sum(:,2:)=grad_sum(:,2:)/maxval(grad_sum(:,2:))
 
   call dat_write('tbtest.dat',dat_array,13)
 
-  call dat_write('currenttest.dat',grad_array,12)
+  call dat_write('currenttest.dat',grad_sum,12)
+
+  call dat_write('iprtest.dat',grad_sum,11)
 
   deallocate(dat_array, stat=istat)
   if(istat/=0) stop 'error deallocating dat_array array'
 
+  deallocate(ipr_vals, stat=istat)
+  if(istat/=0) stop 'error deallocating ipr_vals array'
+
   deallocate(grad_array,stat=istat)
   if(istat/=0) stop 'error deallocating grad_array array'
 
-  deallocate(t_table, stat=istat)
-  if(istat/=0) stop 'error deallocating t_table'
+  deallocate(grad_sum, stat=istat)
+  if(istat/=0) stop 'error deallocating grad_sum array'
 
 end program main_project

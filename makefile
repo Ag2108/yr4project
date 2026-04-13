@@ -30,9 +30,10 @@ $(EXE1): $(MODULE_OBJS) $(MAIN1_OBJ)
 # Optional: pass command-line args to Task1: make run ARGS="a b c d"
 ARGS ?=
 run: $(EXE1)
-	echo $(INPUT) | ./$(EXE1) $(ARGS)
+	echo $(INPUT) | ./$(EXE1) $(ARGS) > out.txt
 
 # Keep run1 as an alias if you like
+comp: $(EXE1)
 run1: run
 
 # Clean build artifacts
