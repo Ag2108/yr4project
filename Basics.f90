@@ -4,6 +4,7 @@ module constants
 
   integer, parameter:: dp=selected_real_kind(15,300)
   integer, parameter:: i32=selected_int_kind(32)
+  integer, parameter:: i64=selected_int_kind(18)
 
   complex(kind=dp), parameter:: cmplx_pi=(0.0_dp,3.1415926_dp)
   complex(kind=dp), parameter:: cmplx_i=(0.0_dp,1.0_dp)
@@ -76,14 +77,36 @@ module constants
 
   end subroutine get_dist
 
+  integer(kind=i64) function nCr_choose(n,r)
+    implicit none
+    integer,intent(in):: n,r
+
+    integer:: i,m
+
+    m=min(r,n-r)
+
+    if(m<0.or.n<0) then
+      nCr_choose=0_i64
+      return
+    end if
+
+    nCr_choose=1_i64
+    do i=1,m
+      nCr_choose=(nCr_choose*int(n-i+1,kind=i64))/int(i,kind=i64)
+    end do
+  end function nCr_choose
+
   subroutine get_params(sys_size,sites,filling,phase_case,a_val,&
-                      &cell_size,nbr_map,nbr_inter,nbr_range,phi_max,k_max)
+                      &cell_size,nbr_map,nbr_inter,nbr_range,phi_max,&
+                      &many_body,U_val,k_max)
     implicit none
     integer,intent(OUT)                                 :: sys_size,filling
     integer,intent(OUT)                                 :: cell_size,nbr_range,phi_max,k_max
     real(kind=dp),intent(OUT)                           :: phase_case,a_val
     real(kind=dp),dimension(:,:),allocatable,intent(OUT):: sites
     logical,dimension(:,:),allocatable,intent(out)      :: nbr_map,nbr_inter
+    integer,intent(out),dimension(2)                    :: many_body
+    real(kind=dp),intent(out)                           :: U_val
 
     character(len=100)                    :: ifl
     character(len=100)                    :: line,param
@@ -105,16 +128,19 @@ module constants
 !                    INITIALISING DEFAULT VALUES                            !
 !---------------------------------------------------------------------------!
 
-    phi_max   =1E4
-    k_max     =1
-    sys_size  =1    !/Number of sites
-    filling   =10    !/Number of energy bands filled with electrons
-    phase_case=0.0_dp!To be multiplied by pi to determine phase/antiphase etc
-    a_val     =1.0_dp!Atomic Spacing/Amstrongs
-    cell_size =8!number of sites within a unit cell
-    nbr_range =1!hopping neighbours
-    AAH       =0.0_dp
-    dimer     =1
+    phi_max     =1E2
+    k_max       =1
+    sys_size    =1    !/Number of sites
+    filling     =10    !/Number of energy bands filled with electrons
+    phase_case  =0.0_dp!To be multiplied by pi to determine phase/antiphase etc
+    a_val       =1.0_dp!Atomic Spacing/Amstrongs
+    cell_size   =8!number of sites within a unit cell
+    nbr_range   =1!hopping neighbours
+    AAH         =0.0_dp
+    dimer       =1
+    many_body(1)=0
+    many_body(2)=0
+    U_val       =1.0_dp
 
     allocate(nbr_map(cell_size,cell_size),stat=istat)
     if(istat/=0) stop 'error allocating default nbr_map'
@@ -242,7 +268,7 @@ module constants
           ! NOTE: This is NOT symmetric! ONLY forward hop has been recorded
           nbr_inter(node1, node2) = .false.
         else
-          print*, 'WARNING: CONNECT_NEXT out of bounds: ', node1, node2
+          print*, 'WARNING: CONNECT_NEXT out of bounds: ', node1,node2
         end if
 
       !AAH case must come last
@@ -256,6 +282,18 @@ module constants
           sites(i,1)=sites(i,1)*cos(2.0_dp*real_pi*AAH*n+phase_case*real_pi)
           if(mod(i,dimer)==0) n=n+1
         end do
+
+        case('UPSPINS')
+        read(line(index(line,'=')+1:),*,iostat=istat) many_body(1)
+        if(istat/=0) stop 'invalid UP SPINS parameter'
+
+        case('DOWNSPINS')
+        read(line(index(line,'=')+1:),*,iostat=istat) many_body(2)
+        if(istat/=0) stop 'invalid DOWN SPINS parameter'
+
+        case('HUBBARDU')
+        read(line(index(line,'=')+1:),*,iostat=istat) U_val
+        if(istat/=0) stop 'invalid HUBBARD U parameter'
 
       case('EXIT')
         print*,'input file read'
@@ -284,6 +322,9 @@ module constants
     print*,'                  SPACING = ',a_val
     print*,'                  RANGE   = ',nbr_range
     print*,'                  AAH     = ',AAH,dimer
+    print*,'                  UPS     = ',many_body(1)
+    print*,'                  DOWNS   = ',many_body(2)
+    print*,'                  HBD U   = ',U_val
     print*,'!--------------------------------------------------------------!'
     do i=1,size(sites,1)
       print*,'               SITE ',i,' = ' ,sites(i,:)
