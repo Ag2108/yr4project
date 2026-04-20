@@ -13,7 +13,7 @@ if not isinstance(max_q, int) or max_q <= 1:
         raise ValueError("max_q must be a positive integer, greater than 1")
 
 
-for q in range(2, max_q+1):
+for q in range(3, max_q+1):
 
     for p in range(1, q+1):
 
@@ -28,13 +28,13 @@ for q in range(2, max_q+1):
             with open('read.in', 'w') as f:
                 f.write("PHIMAX  =2\n")
                 f.write("SIZE    =1\n")
-                f.write("RANGE   =2\n")
+                f.write("RANGE   =3\n")
                 f.write(f"CELLSIZE={N}\n\n")
                 
                 # 1. Write the Sites
                 f.write("# --- SITES (site_num, epsilon, t_vals(intra), t_vals(inter)) ---\n")
                 for i in range(1, N + 1):
-                    f.write(f"SITE    ={i} 2.0 1.0 0.1 1.0 0.1\n")
+                    f.write(f"SITE    ={i} 2.0 1.0 0.8 0.6 1.0 0.8 0.6\n")
                     
                 f.write("\n")
                 

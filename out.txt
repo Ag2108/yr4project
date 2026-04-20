@@ -1,5 +1,104 @@
  file input read as:read.in                                                                                             
  RANGE should already be defined to get desired system
+ WARNING: is an invalid parameter
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
+ RANGE and CELLSIZE MUST be defined to get desired system.
  RANGE and CELLSIZE MUST be defined to get desired system.
  RANGE and CELLSIZE MUST be defined to get desired system.
  WARNING: is an invalid parameter
@@ -8,230 +107,322 @@
  !--------------------------------------------------------------!
  !PARAMETERS USED:                                              !
  !--------------------------------------------------------------!
-                   PHIMAX  =          200
+                   PHIMAX  =            2
                    KMAX    =            1
-                   SIZE    =            4
-                   CELLSIZE=            2
-                   FILLING =           10
+                   SIZE    =            1
+                   CELLSIZE=          100
+                   FILLING =            1
                    PHASE   =    0.0000000000000000     
                    SPACING =    1.0000000000000000     
-                   RANGE   =            2
-                   AAH     =    0.0000000000000000                1
-                   UPS     =            2
-                   DOWNS   =            2
-                   HBD U   =    20.000000000000000     
+                   RANGE   =            3
+                   AAH     =   0.98999999999999999                1
+                   UPS     =            0
+                   DOWNS   =            0
+                   HBD U   =    1.0000000000000000     
  !--------------------------------------------------------------!
-                SITE            1  =    0.0000000000000000       -1.0000000000000000        5.0000000000000003E-002  -1.0000000000000000        5.0000000000000003E-002
-                SITE            2  =    0.0000000000000000       -1.0000000000000000        5.0000000000000003E-002  -1.0000000000000000        5.0000000000000003E-002
+                SITE            1  =    1.9960534568565431        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE            2  =    1.9842294026289558        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE            3  =    1.9645745014573774        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE            4  =    1.9371663222572624        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE            5  =    1.9021130325903075        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE            6  =    1.8595529717765034        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE            7  =    1.8096541049320367        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE            8  =    1.7526133600877281        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE            9  =    1.6886558510040350        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           10  =    1.6180339887498962        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           11  =    1.5410264855515756        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           12  =    1.4579372548428249        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           13  =    1.3690942118573846        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           14  =    1.2748479794973708        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           15  =    1.1755705045849432        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           16  =    1.0716535899579962        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           17  =   0.96350734820344019        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           18  =   0.85155858313016186        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           19  =   0.73624910536935328        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           20  =   0.61803398874989912        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           21  =   0.49737977432969355        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           22  =   0.37476262917144015        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           23  =   0.25066646712860657        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           24  =   0.12558103905863216        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           25  =    1.2744992440044709E-014   1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           26  =  -0.12558103905860671        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           27  =  -0.25066646712858132        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           28  =  -0.37476262917147096        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           29  =  -0.49737977432972391        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           30  =  -0.61803398874990190        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           31  =  -0.73624910536935606        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           32  =  -0.85155858313013877        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           33  =  -0.96350734820341777        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           34  =   -1.0716535899579749        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           35  =   -1.1755705045849227        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           36  =   -1.2748479794973513        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           37  =   -1.3690942118573868        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           38  =   -1.4579372548428269        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           39  =   -1.5410264855515774        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           40  =   -1.6180339887498896        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           41  =   -1.6886558510040215        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           42  =   -1.7526133600877432        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           43  =   -1.8096541049320500        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           44  =   -1.8595529717765096        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           45  =   -1.9021130325903106        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           46  =   -1.9371663222572633        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           47  =   -1.9645745014573768        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           48  =   -1.9842294026289542        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           49  =   -1.9960534568565420        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           50  =   -2.0000000000000000        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           51  =   -1.9960534568565451        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           52  =   -1.9842294026289606        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           53  =   -1.9645745014573863        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           54  =   -1.9371663222572759        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           55  =   -1.9021130325903264        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           56  =   -1.8595529717764865        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           57  =   -1.8096541049320234        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           58  =   -1.7526133600877130        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           59  =   -1.6886558510040182        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           60  =   -1.6180339887498860        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           61  =   -1.5410264855515736        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           62  =   -1.4579372548428229        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           63  =   -1.3690942118573826        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           64  =   -1.2748479794973906        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           65  =   -1.1755705045849638        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           66  =   -1.0716535899580177        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           67  =  -0.96350734820346251        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           68  =  -0.85155858313018495        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           69  =  -0.73624910536940347        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           70  =  -0.61803398874995041        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           71  =  -0.49737977432977326        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           72  =  -0.37476262917152103        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           73  =  -0.25066646712857549        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           74  =  -0.12558103905860085        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           75  =    1.8608441540673885E-014   1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           76  =   0.12558103905863802        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           77  =   0.25066646712861240        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           78  =   0.37476262917144593        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           79  =   0.49737977432969921        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           80  =   0.61803398874987769        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           81  =   0.73624910536933230        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           82  =   0.85155858313011568        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           83  =   0.96350734820349515        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           84  =    1.0716535899580493        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           85  =    1.1755705045849940        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           86  =    1.2748479794974192        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           87  =    1.3690942118574096        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           88  =    1.4579372548428484        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           89  =    1.5410264855515974        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           90  =    1.6180339887499080        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           91  =    1.6886558510040381        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           92  =    1.7526133600877309        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           93  =    1.8096541049320392        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           94  =    1.8595529717765003        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           95  =    1.9021130325903026        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           96  =    1.9371663222572568        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           97  =    1.9645745014573719        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           98  =    1.9842294026289511        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE           99  =    1.9960534568565405        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
+                SITE          100  =    2.0000000000000000        1.0000000000000000       0.80000000000000004       0.59999999999999998        1.0000000000000000       0.80000000000000004       0.59999999999999998     
  !--------------------------------------------------------------!
-                   CONNECT =  T F
-                   CONNECT =  F T
+                   CONNECT =  T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F T
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T F
+                   CONNECT =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T F T
  !--------------------------------------------------------------!
-               CONNECT_NBR =  T T
-               CONNECT_NBR =  F T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
+               CONNECT_NBR =  F T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T
  !--------------------------------------------------------------!
- invalid filling value, 1/2 filled current calculated
- iteration           1
- iteration           2
- iteration           3
- iteration           4
- iteration           5
- iteration           6
- iteration           7
- iteration           8
- iteration           9
- iteration          10
- iteration          11
- iteration          12
- iteration          13
- iteration          14
- iteration          15
- iteration          16
- iteration          17
- iteration          18
- iteration          19
- iteration          20
- iteration          21
- iteration          22
- iteration          23
- iteration          24
- iteration          25
- iteration          26
- iteration          27
- iteration          28
- iteration          29
- iteration          30
- iteration          31
- iteration          32
- iteration          33
- iteration          34
- iteration          35
- iteration          36
- iteration          37
- iteration          38
- iteration          39
- iteration          40
- iteration          41
- iteration          42
- iteration          43
- iteration          44
- iteration          45
- iteration          46
- iteration          47
- iteration          48
- iteration          49
- iteration          50
- iteration          51
- iteration          52
- iteration          53
- iteration          54
- iteration          55
- iteration          56
- iteration          57
- iteration          58
- iteration          59
- iteration          60
- iteration          61
- iteration          62
- iteration          63
- iteration          64
- iteration          65
- iteration          66
- iteration          67
- iteration          68
- iteration          69
- iteration          70
- iteration          71
- iteration          72
- iteration          73
- iteration          74
- iteration          75
- iteration          76
- iteration          77
- iteration          78
- iteration          79
- iteration          80
- iteration          81
- iteration          82
- iteration          83
- iteration          84
- iteration          85
- iteration          86
- iteration          87
- iteration          88
- iteration          89
- iteration          90
- iteration          91
- iteration          92
- iteration          93
- iteration          94
- iteration          95
- iteration          96
- iteration          97
- iteration          98
- iteration          99
- iteration         100
- iteration         101
- iteration         102
- iteration         103
- iteration         104
- iteration         105
- iteration         106
- iteration         107
- iteration         108
- iteration         109
- iteration         110
- iteration         111
- iteration         112
- iteration         113
- iteration         114
- iteration         115
- iteration         116
- iteration         117
- iteration         118
- iteration         119
- iteration         120
- iteration         121
- iteration         122
- iteration         123
- iteration         124
- iteration         125
- iteration         126
- iteration         127
- iteration         128
- iteration         129
- iteration         130
- iteration         131
- iteration         132
- iteration         133
- iteration         134
- iteration         135
- iteration         136
- iteration         137
- iteration         138
- iteration         139
- iteration         140
- iteration         141
- iteration         142
- iteration         143
- iteration         144
- iteration         145
- iteration         146
- iteration         147
- iteration         148
- iteration         149
- iteration         150
- iteration         151
- iteration         152
- iteration         153
- iteration         154
- iteration         155
- iteration         156
- iteration         157
- iteration         158
- iteration         159
- iteration         160
- iteration         161
- iteration         162
- iteration         163
- iteration         164
- iteration         165
- iteration         166
- iteration         167
- iteration         168
- iteration         169
- iteration         170
- iteration         171
- iteration         172
- iteration         173
- iteration         174
- iteration         175
- iteration         176
- iteration         177
- iteration         178
- iteration         179
- iteration         180
- iteration         181
- iteration         182
- iteration         183
- iteration         184
- iteration         185
- iteration         186
- iteration         187
- iteration         188
- iteration         189
- iteration         190
- iteration         191
- iteration         192
- iteration         193
- iteration         194
- iteration         195
- iteration         196
- iteration         197
- iteration         198
- iteration         199
- iteration         200
- iteration         201
  old data file:tbtest.dat overwritten
  old data file:currenttest.dat overwritten
- old data file:iprtest.dat overwritten
+ old data file:loctest.dat overwritten

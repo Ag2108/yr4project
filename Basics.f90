@@ -131,7 +131,7 @@ module constants
     phi_max     =1E2
     k_max       =1
     sys_size    =1    !/Number of sites
-    filling     =10    !/Number of energy bands filled with electrons
+    filling     =1    !/Number of energy bands filled with electrons
     phase_case  =0.0_dp!To be multiplied by pi to determine phase/antiphase etc
     a_val       =1.0_dp!Atomic Spacing/Amstrongs
     cell_size   =8!number of sites within a unit cell

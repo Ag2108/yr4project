@@ -5,7 +5,7 @@ phi_vals = []
 energy_vals = []
 
 # Path to your master data file
-file_path = 'master_1.571.dat'
+file_path = 'master_0.000.dat'
 
 try:
     with open(file_path, 'r') as f:
@@ -44,9 +44,9 @@ try:
     plt.scatter(phi_vals, energy_vals, s=point_size, color='teal', alpha=0.6)
     
     # Formatting the plot with LaTeX notation
-    plt.title("Hofstadter Butterfly Cross-Section (AB Phase = 1.571)", fontsize=16)
-    plt.xlabel(r"AAH Ratio ($\alpha = p/q$)", fontsize=14)
-    plt.ylabel(r"Energy ($E$)", fontsize=14)
+    #plt.title("Hofstadter Butterfly Cross-Section (AB Phase = 1.571)", fontsize=16)
+    plt.xlabel(r"Flux Quanta per Unit Cell ($\alpha = p/q$)", fontsize=14)
+    plt.ylabel(r"Energy ($E$)/eV", fontsize=14)
     
     # Visual aids
     plt.grid(True, linestyle='--', alpha=0.4)
@@ -55,7 +55,7 @@ try:
     plt.tight_layout()
     
     # Save the output
-    plt.savefig('hofstadter_plot4.png', dpi=300)
+    plt.savefig('hofstadter_plotNNN.png', dpi=500)
     print("Plot saved as 'hofstadter_plot.png'")
 
 except Exception as e:

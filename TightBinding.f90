@@ -5,7 +5,7 @@ module tight_binding
   public
 
   type:: unit_cell
-    integer                                    :: n_sites!gives number of sites in cell
+    integer                                    :: n_sites! Gives number of sites in cell
     integer                                    :: nbr_range
     real(kind=dp),dimension(:),allocatable     :: epsilon
     complex(kind=dp),dimension(:,:),allocatable:: intra
@@ -89,26 +89,33 @@ module tight_binding
             &dist_intra(cell_size,cell_size),stat=istat)
     if(istat/=0) stop 'error with nbr hopping allocation'
 
+    ! Given that the hopping is the same for each cell, only the centre cell need be considered here
     dist_intra=tmp_dist(cell_size+1:2*cell_size,cell_size+1:2*cell_size)
+    ! Fwrd inter-hopping only here; transpose (and conjugate for pexp and kexp terms) are defined within 
+    ! make_htn() and make_hmb() subroutines
     dist_inter=tmp_dist(cell_size+1:2*cell_size,2*cell_size+1:3*cell_size)
 
     deallocate(tmp_dist,stat=istat)
     if(istat/=0) stop 'error deallocating tmp_dist'
     
     ! Initialisation of intra hopping tables
+    ! Definition here allows for filtering in make_hmb
     cell%intra(:,:)=0.0_dp
     cell%inter(:,:)=0.0_dp
     ! Nbrs defined from dist
     do n=1,nbr_range
       do j=1,cell_size
         do i=1,cell_size
+          ! No allocation unless the 'distance' between points is within range
           if(dist_intra(i,j)==n) then
             cell%intra(i,j)=cell%intra(i,j)+sites(i,n+1)
           end if
           if(dist_inter(i,j)==n) then
+            ! Given that nbr_range() array is organised as
+            ! (intranearest,intranext_nearest,internearest,...)
             cell%inter(i,j)=cell%inter(i,j)+sites(i,cell%nbr_range+n+1)
             ! Given that only fwrd hopping is included in inter 
-            !/sf(both are included in intra; see get_params)
+            ! (both are included in intra; see get_params)
             !cell%inter(j,i)=cell%inter(j,i)+sites(i,n+1)
           end if
         end do
@@ -131,12 +138,12 @@ module tight_binding
 subroutine make_htn(sys_size, cell, kexp, pexp, htn)
   implicit none
 
-  type(unit_cell),intent(in)                     :: cell
-  integer, intent(in)                            :: sys_size 
+  type(unit_cell),intent(in)                   :: cell
+  integer, intent(in)                          :: sys_size 
   ! Gives the NUMBER OF CELLS
-  complex(kind=dp), intent(in)                   :: kexp
-  complex(kind=dp), intent(inout)                :: pexp
-  complex(kind=dp), intent(inout), dimension(:,:):: htn
+  complex(kind=dp),intent(in)                  :: kexp
+  complex(kind=dp),intent(inout)               :: pexp
+  complex(kind=dp),intent(inout),dimension(:,:):: htn
 
   integer:: cc_start,cc_end ! Integers used to define parts of htn which 
   integer:: nc_start,nc_end ! Integers used to define PBCs, inter hopping
@@ -255,6 +262,8 @@ end subroutine make_htn
       end if
     end do
 
+    ! Mapping each state to each state
+    ! This is analogous to a tensor product (x)
     state_tot=1
     do i=1,int(d_up)
       do j=1,int(d_down)
@@ -462,6 +471,27 @@ end subroutine make_htn
     fermi_sign=1.0_dp-2.0_dp*real(poppar(iand(state_in,check_sites)),kind=dp)
     return
   end function fermi_sign
+
+  subroutine get_local(htn,size,local)
+    implicit none
+
+    complex(kind=dp),intent(in),dimension(:,:):: htn
+    integer(kind=i64),intent(in)              :: size
+    real(kind=dp),dimension(size),intent(out) :: local
+
+    integer(kind=i64):: n,m
+
+    ! Currently for the lowest energy level
+    m=1
+
+    local=0.0_dp
+
+    do n=1,size
+      ! Given that the PD of electrons at n must not be IM
+      local(n)=local(n)+real(htn(n,m)*conjg(htn(n,m)),kind=dp)
+    end do
+
+  end subroutine
 
 end module tight_binding
 

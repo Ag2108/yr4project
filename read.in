@@ -1,6 +1,5 @@
 #READ.IN file for topological insulator model
 #Please refer to Basic.f90 for how to complete this input file
-PHIMAX  =200
 SIZE    =4
 RANGE   =2
 CELLSIZE=2
@@ -12,12 +11,8 @@ CONNECT =1 2
 # Out cell connections (fwrd connections)
 CONNECTN=2 1
 # Many body system terms
-UPSPINS  =2
-DOWNSPINS=2
-HUBBARDU =20.0
-#AAH case must come after SITE
-# 'Q' factor, length of n
-#AAH     =1.618033989 2
+UPSPINS  =4
+DOWNSPINS=4
+HUBBARDU =8.0
 #must ALWAYS end in 'EXIT' to avoid INFINITE LOOP
 EXIT
-

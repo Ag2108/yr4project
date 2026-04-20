@@ -7,12 +7,12 @@ program main_project
 
   complex(kind=dp), dimension(:,:), allocatable:: htn
   type(unit_cell)                              :: cell
-  integer                                      :: sys_size,istat=0,i=1,j=1,&
+  integer                                      :: sys_size,istat=0,i=1,&!j=1,&
                                                  &filling,size
   real(kind=dp)                                :: a_val, k_val,phase,&
                                                  &theta_val, phi=0.0_dp!,k_pos
-  real(kind=dp), dimension(:),allocatable      :: egn
-  real(kind=dp), dimension(:,:),allocatable    :: dat_array,grad_array,grad_sum,ipr_vals
+  real(kind=dp), dimension(:),allocatable      :: egn,loc_temp
+  real(kind=dp), dimension(:,:),allocatable    :: dat_array,grad_array,grad_sum,loc_array
   complex(kind=dp)                             :: kexp, aexp, pexp!,ctn
   real(kind=dp)                                :: d_phi,fermi
   integer                                      :: phi_max,k_max
@@ -27,11 +27,17 @@ program main_project
   call init_sys(cell,sys_size,filling,phase,a_val,phi_max,&
                &many_body,U_val,k_max)
 
-  if(sum(many_body)>=0) mb=.true.
+  if(sum(many_body)>0) mb=.true.
 
   if(mb)then
 
+    print*, 'Many body calculation'
+
     size=sys_size*cell%n_sites
+
+    ! NB this is an arbitrary safety feature
+    ! I have not done the calculation to determine this
+    if(size>=10) stop 'System is too large'
 
     call get_basis(2,2,size,hbt_tot,d_tot)
 
@@ -49,17 +55,19 @@ program main_project
     allocate(hmb(d_tot, d_tot), stat=istat)
     if(istat/=0) stop 'error allocating hmb matrix'
 
+    allocate(loc_array(1:phi_max+1,d_tot+1), stat=istat)
+    if(istat/=0) stop 'error allocating loc_array array'
+
+    allocate(loc_temp(d_tot),stat=istat)
+    if(istat/=0) stop 'error allocating loc_temp array'
+
     allocate(dat_array(1:phi_max+1,size+1),stat=istat)
     if(istat/=0) stop 'error allocating dat_array'
-
-    allocate(ipr_vals(1:phi_max+1,2),stat=istat)
-    if(istat/=0) stop 'error allocating ipr_vals'
 
     allocate(grad_array(1:phi_max+1,size+1),stat=istat)
     if(istat/=0) stop 'error allocating grad_array'
 
     grad_array=0.0_dp
-    ipr_vals  =0.0_dp
 
     aexp=exp(cmplx_i*a_val)
 
@@ -82,9 +90,15 @@ program main_project
 
         dat_array(i,1) =phi
         grad_array(i,1)=phi
-        dat_array(i,2:size+1)=egn(1:size) ! Only want the lower evals
-        ipr_vals(i,1)  =phi
-        ipr_vals(i,2)  =sum(abs(hmb(1:size,j))**4)
+        loc_array(i,1)=phi
+        dat_array(i,2:filling+1)=egn(1:filling) ! Only want the lower evals
+
+        call get_local(hmb,d_tot,loc_temp)
+        
+        loc_array(i,2:)=loc_temp(:)
+
+        deallocate(hmb, stat=istat)
+        if(istat/=0) stop 'error deallocating hmb array'
 
         deallocate(egn, stat=istat)
         if(istat/=0) stop 'error deallocating egn array'
@@ -93,8 +107,8 @@ program main_project
 
     d_phi = (2.0_dp * real_pi) / real(phi_max, kind=dp)
 
-    call get_grad(dat_array(:, 2:size+1), grad_array(:, 2:size+1),&
-                &d_phi, (phi_max+1), size)
+    call get_grad(dat_array(:, 2:filling+1), grad_array(:, 2:filling+1),&
+                &d_phi, (phi_max+1), filling)
 
     allocate(grad_sum(1:phi_max+1,2),stat=istat)
     if(istat/=0) stop 'error allocating grad_sum'
@@ -113,19 +127,22 @@ program main_project
 
     call dat_write('currenttest.dat',grad_sum,12)
 
-    call dat_write('iprtest.dat',grad_sum,11)
+    call dat_write('loctest.dat',loc_array,11)
 
     deallocate(dat_array, stat=istat)
     if(istat/=0) stop 'error deallocating dat_array array'
-
-    deallocate(ipr_vals, stat=istat)
-    if(istat/=0) stop 'error deallocating ipr_vals array'
 
     deallocate(grad_array,stat=istat)
     if(istat/=0) stop 'error deallocating grad_array array'
 
     deallocate(grad_sum, stat=istat)
     if(istat/=0) stop 'error deallocating grad_sum array'
+
+    deallocate(loc_array,stat=istat)
+    if(istat/=0) stop 'error deallocating loc_array array'
+
+    deallocate(loc_temp, stat=istat)
+    if(istat/=0) stop 'error deallocating loc_temp array'
 
   else ! Default is to retain previous algorithm for single particle
 
@@ -141,14 +158,16 @@ program main_project
     allocate(dat_array(1:phi_max+1,size+1),stat=istat)
     if(istat/=0) stop 'error allocating dat_array'
 
-    allocate(ipr_vals(1:phi_max+1,2),stat=istat)
-    if(istat/=0) stop 'error allocating ipr_vals'
+    allocate(loc_array(1:phi_max+1,size+1),stat=istat)
+    if(istat/=0) stop 'error allocating loc_array array'
+
+    allocate(loc_temp(size),stat=istat)
+    if(istat/=0) stop 'error allocating loc_temp array'
 
     allocate(grad_array(1:phi_max+1,size+1),stat=istat)
     if(istat/=0) stop 'error allocating grad_array'
 
     grad_array=0.0_dp
-    ipr_vals  =0.0_dp
 
     aexp=exp(cmplx_i*a_val)
 
@@ -161,32 +180,6 @@ program main_project
       theta_val=((real_pi*2)*phi)
       pexp=exp(cmplx_i*theta_val)
 
-      ! do j=1,k_max+1
-
-      !   k_pos=real(j-1,kind=dp)*(2.0_dp*real_pi)/real(k_max,kind=dp)-real_pi
-
-      !   kexp=aexp**(k_pos)
-
-      !   allocate(htn(size,size), stat=istat)
-      !   if(istat/=0) stop 'error allocating htn matrix'
-
-      !   htn=(0.0_dp,0.0_dp)
-
-      !   call make_htn(sys_size, cell, kexp, pexp, htn)
-
-      !   call zheev_evals(htn,egn)
-
-      !   deallocate(htn, stat=istat)
-      !   if(istat/=0) stop 'error deallocating htn array'
-
-      !   deallocate(egn, stat=istat)
-      !   if(istat/=0) stop 'error deallocating egn array'
-      
-      ! end do
-
-      ! Ensuring that the required momentum phase is picked up
-      ! Even if it not calculated exactly in the main k loop.
-
         kexp=aexp**(k_val)
 
         allocate(htn(size,size), stat=istat)
@@ -198,11 +191,14 @@ program main_project
 
         call zheev_evals(htn,egn)
 
+        loc_array(i,1) =phi
         dat_array(i,1) =phi
         grad_array(i,1)=phi
         dat_array(i,2:)=egn(:)
-        ipr_vals(i,1)  =phi
-        ipr_vals(i,2)  =sum(abs(htn(:,j))**4)
+
+        call get_local(htn,int(size,kind=i64),loc_temp)
+
+        loc_array(i,2:)=loc_temp(:)
 
         deallocate(htn, stat=istat)
         if(istat/=0) stop 'error deallocating htn array'
@@ -234,19 +230,22 @@ program main_project
 
     call dat_write('currenttest.dat',grad_sum,12)
 
-    call dat_write('iprtest.dat',grad_sum,11)
+    call dat_write('loctest.dat',loc_array,11)
 
     deallocate(dat_array, stat=istat)
     if(istat/=0) stop 'error deallocating dat_array array'
-
-    deallocate(ipr_vals, stat=istat)
-    if(istat/=0) stop 'error deallocating ipr_vals array'
 
     deallocate(grad_array,stat=istat)
     if(istat/=0) stop 'error deallocating grad_array array'
 
     deallocate(grad_sum, stat=istat)
     if(istat/=0) stop 'error deallocating grad_sum array'
+
+    deallocate(loc_array, stat=istat)
+    if(istat/=0) stop 'error deallocating loc_array array'
+
+    deallocate(loc_temp, stat=istat)
+    if(istat/=0) stop 'error deallocating loc_temp array'
 
   end if
 
